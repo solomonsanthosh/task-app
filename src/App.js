@@ -20,7 +20,7 @@ const App = () => {
 			<span>
 				<svg
             onClick={handleClick}
-            style={{width: '50px',height: '50px'}}
+            style={{width: '50px',height: '50px',position:'absolute',right:'0',bottom:'0',margin:'30px'}}
 					xmlns='http://www.w3.org/2000/svg'
 					class='h-5 w-5'
 					viewBox='0 0 20 20'

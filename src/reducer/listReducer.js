@@ -13,21 +13,64 @@ export const listReducer = (state =[],action) => {
             console.log(action.payload.title);
             if (selectedList[0].task) {
 
-               var foundList = {
+               let foundList = {
                   
                   title: action.payload.title,
                   task:[...selectedList[0].task,action.payload.task]
                }
-               return [...remainingList,foundList]
+               return [foundList,...remainingList]
             }else {
-               var foundList = {
+               let foundList = {
                   
                   title: action.payload.title,
                   task:[action.payload.task]
                }
-               return [...remainingList,foundList]
+               return [foundList,...remainingList]
 
             }
+      case 'EDIT_TASK':
+         
+         const remaininList = state.filter((l)=>{
+            return l.title !== action.payload.title
+         })
+         let selectedLists = state.filter((l)=>{
+            return l.title === action.payload.title
+         })
+         
+         
+         const remainingTask = selectedLists[0].task.filter((task)=>
+         task.title !== action.payload.task.title
+         )
+         let selectedTask = selectedLists[0].task.filter((task)=>
+         task.title === action.payload.task.title
+         )
+         // selectedTask.details = action.payload.task.details;
+         const foundList = {
+            
+            title: action.payload.title,
+            task: [action.payload.task,...remainingTask]
+         }
+      
+      
+         return [foundList,...remaininList]
+         // if (selectedList[0].task) {
+
+         //    let foundList = {
+               
+         //       title: action.payload.title,
+         //       task:[...selectedList[0].task,action.payload.details]
+         //    }
+         //    return [foundList,...remainingList]
+         // }else {
+         //    let foundList = {
+               
+         //       title: action.payload.title,
+         //       task:[action.payload.task]
+         //    }
+         //    return [foundList,...remainingList]
+
+         // }
+
       default:
          return state;
    }

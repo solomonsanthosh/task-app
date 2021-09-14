@@ -5,7 +5,7 @@ import { persistReducer } from 'redux-persist';
 const persistConfig = {
 	key: 'root',
 	storage,
-	whitelist: [list]
+	whitelist: 'list'
 };
 const rootReducer = combineReducers({
    list: listReducer
