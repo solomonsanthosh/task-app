@@ -23,3 +23,35 @@
    border: none;
    background-color: white;
 }
+.card {
+   width: 300px;
+   height: 150px;
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-evenly;
+   align-items: center;
+   background-color: rgb(255, 255, 255);
+   border: 2px solid #1c437b;
+   margin: 20px;
+   border-radius: 0px;
+}
+.card-container {
+   display: flex;
+   
+}
+.popup2 {
+   
+  
+   width: 100px;
+   position: absolute;
+   background-color: white;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.popup-wrap {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}

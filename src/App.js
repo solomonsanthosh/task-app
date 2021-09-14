@@ -1,14 +1,22 @@
 import React from 'react';
 import Modal from './components/Modal';
-
-
+import TaskCard from './components/TaskCard';
+import { useSelector } from 'react-redux';
 const App = () => {
+	const { list } = useSelector((state) => ({...state}))
    const handleClick = () => {
       document.querySelector('.display').style.display='block'   
    }
 	return (
-      <>
+      <>	
          <Modal></Modal>
+			<div className='card-container'>
+			{list.map((l)=> (
+				<TaskCard list={l} ></TaskCard>
+				)
+				)}
+			</div>
+
 			<span>
 				<svg
             onClick={handleClick}

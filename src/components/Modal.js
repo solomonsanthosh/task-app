@@ -6,12 +6,14 @@ const Modal = () => {
 
 const handleSubmit = (e) => {
 
-	
+
    e.preventDefault()
 	dispatch({
 		type:'ADD_LIST',
 		payload: title
 	})
+	document.querySelector('.display').style.display='none'   
+
 }
 
 	return (
