@@ -5,18 +5,21 @@ const TaskCard = (props) => {
    const dispatch = useDispatch()
    const [task, setTask] = useState('')
 	const handleSubmit = (e) => {
-      e.preventDefault()
+      e.preventDefault();
+
 		dispatch({
          type: 'ADD_TASK',
-         payload: task
+         payload: {
+            title:props.list.title,
+            task: {title:task}
+         }
       })
 	};
-
-
 	return (
 		<>
 			<div className='card'>
-				<div>{props.list}</div>
+
+				<div>{props.list.title}</div>
             <div className='popup-wrap'>
 				<form action='' className='popup2'>
 					<input

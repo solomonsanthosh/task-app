@@ -10,7 +10,7 @@ const handleSubmit = (e) => {
    e.preventDefault()
 	dispatch({
 		type:'ADD_LIST',
-		payload: title
+		payload: {title:title}
 	})
 	document.querySelector('.display').style.display='none'   
 
