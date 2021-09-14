@@ -1,6 +1,6 @@
+import TaskCard from './components/TaskCard';
 import React from 'react';
 import Modal from './components/Modal';
-import TaskCard from './components/TaskCard';
 import { useSelector } from 'react-redux';
 const App = () => {
 	const { list } = useSelector((state) => ({...state}))
