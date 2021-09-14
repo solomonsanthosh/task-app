@@ -1,7 +1,7 @@
-export const listReducer = (state =[],action) => {
+export const listReducer = (state =['todo','important'],action) => {
    switch(action.type) {
       case 'ADD_LIST':
-         return action.payload;
+         return [...state,action.payload];
       default:
          return state;
    }

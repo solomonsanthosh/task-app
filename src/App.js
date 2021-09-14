@@ -4,9 +4,7 @@ import Modal from './components/Modal';
 
 const App = () => {
    const handleClick = () => {
-      document.querySelector('.display').style.display='block'
-      
-
+      document.querySelector('.display').style.display='block'   
    }
 	return (
       <>

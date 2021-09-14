@@ -1,7 +1,19 @@
 import React, { useState } from 'react';
-
+import { useDispatch } from 'react-redux';
 const Modal = () => {
 	const [title, setTitle] = useState('');
+	const dispatch = useDispatch()
+
+const handleSubmit = (e) => {
+
+	
+   e.preventDefault()
+	dispatch({
+		type:'ADD_LIST',
+		payload: title
+	})
+}
+
 	return (
       <div className='display'>
 		<div className='popup-bg'>
@@ -14,7 +26,7 @@ const Modal = () => {
                placeholder='New List'
 					id=''
 				/>
-				<button className='addbtn'><span>
+				<button className='addbtn' onClick={handleSubmit}><span>
 				<svg
             
             style={{width: '40px',height: '40px'}}
