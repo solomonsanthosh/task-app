@@ -78,3 +78,10 @@ height: 50px;
    border: 1px solid royalblue;
    border-radius: 20px;
 }
+.greenTick {
+   color: green;
+
+}
+.redTick {
+   color: red;
+}

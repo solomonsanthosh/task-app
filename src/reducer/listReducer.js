@@ -16,7 +16,8 @@ export const listReducer = (state =[],action) => {
                let foundList = {
                   
                   title: action.payload.title,
-                  task:[...selectedList[0].task,action.payload.task]
+                  task:[...selectedList[0].task,action.payload.task],
+                  // unfinished: [...selectedList[0].task,action.payload.task],
                }
                return [foundList,...remainingList]
             }else {
@@ -48,28 +49,41 @@ export const listReducer = (state =[],action) => {
          const foundList = {
             
             title: action.payload.title,
-            task: [action.payload.task,...remainingTask]
+            task: [action.payload.task,...remainingTask],
+
+
          }
       
       
          return [foundList,...remaininList]
-         // if (selectedList[0].task) {
-
-         //    let foundList = {
+         
+         case 'EDIT_FINISH':
+            const remaininlist = state.filter((l)=>{
+               return l.title !== action.payload.title
+            })
+            let selectedlists = state.filter((l)=>{
+               return l.title === action.payload.title
+            })
+            
+            
+            const remainingtask = selectedlists[0].task.filter((task)=>
+            task.title !== action.payload.task.title
+            )
+            let selectedtask = selectedlists[0].task.filter((task)=>
+            task.title === action.payload.task.title
+            )
+            // selectedTask.details = action.payload.task.details;
+            const foundlist = {
                
-         //       title: action.payload.title,
-         //       task:[...selectedList[0].task,action.payload.details]
-         //    }
-         //    return [foundList,...remainingList]
-         // }else {
-         //    let foundList = {
-               
-         //       title: action.payload.title,
-         //       task:[action.payload.task]
-         //    }
-         //    return [foundList,...remainingList]
+               title: action.payload.title,
+               task: [action.payload.task,...remainingtask],
+   
+   
+            }
+            
+            return [foundlist,...remaininlist]
+         
 
-         // }
 
       default:
          return state;
