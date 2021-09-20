@@ -62,7 +62,7 @@ const TaskCard = (props) => {
 			<div className='card'>
 				<div>{props.list.title}</div>
 
-				{unfinished.length ?
+				{unfinished ?
 					unfinished.map((t) => (
 						<Task
 						color = 'redTick'
@@ -74,7 +74,7 @@ const TaskCard = (props) => {
 						/>
 						)): null}
 
-				{finished.length ? (
+				{finished ? (
 					<div>
 						finished:
 						{finished.map((t) => (
